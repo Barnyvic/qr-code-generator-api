@@ -11,11 +11,13 @@
     <div class="container">
         <div class="row">
             <% movies.forEach(movie => { %>
+                 console.log( <%= movie.Images[0] %>);
                 <div class="col-md-4">
                     <div class="card mb-3">
-                        <img src="<%= movie.Poster %>" alt="<%= movie.Title %> Image" class="card-img-top">
+                        <img src="<%=movie.Images[0]%>" alt="<%= movie.Title %> Image" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><%= movie.Title %></h5>
+                            <h5 class="card-title"><%= movie.Type %></h5>
                         </div>
                     </div>
                 </div>

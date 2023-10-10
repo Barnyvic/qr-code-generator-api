@@ -12,7 +12,8 @@ export class MoviesService {
     this.movies = JSON.parse(rawData);
   }
   getMovies() {
-    return this.shuffleArray(this.movies);
+    const result = this.shuffleArray(this.movies);
+    return result;
   }
 
   private shuffleArray(array: Media[]) {
