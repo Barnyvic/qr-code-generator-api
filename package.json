@@ -54,10 +54,7 @@
     "ts-loader": "^9.2.3",
     "ts-node": "^10.0.0",
     "tsconfig-paths": "4.2.0",
-    "typescript": "^5.0.0",
-    "engines": {
-      "node": ">=10.0.0"
-    }
+    "typescript": "^5.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -75,5 +72,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }
