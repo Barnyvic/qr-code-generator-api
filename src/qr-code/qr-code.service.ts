@@ -10,9 +10,8 @@ export class QrCodeService {
   @Cron(CronExpression.EVERY_10_SECONDS)
   async generateQrCode(): Promise<string> {
     try {
-      const movies = 'https://pornhub.com';
+      const movies = 'https://ill-fox-cap.cyclic.app/api/v1/movies/all-movies';
       const qrCodeDataURL = await qrcode.toDataURL(movies);
-      console.log('@@@@');
       return qrCodeDataURL;
     } catch (error) {
       throw new Error('Failed to generate QR code.');
