@@ -1,4 +1,5 @@
 export interface Media {
+  id: number;
   Title: string;
   Year: string;
   Rated: string;
@@ -17,7 +18,9 @@ export interface Media {
   imdbRating: string;
   imdbVotes: string;
   imdbID: string;
+  Response: string;
   Type: string;
   totalSeasons?: string;
   Images: string[];
+  ComingSoon?: boolean;
 }

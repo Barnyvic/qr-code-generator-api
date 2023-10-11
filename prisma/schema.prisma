@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model media_entity {
+  id        Int      @id @default(autoincrement())
+  Title     String
+  Year      String
+  Rated     String
+  Released  String
+  Runtime   String
+  Genre     String
+  Director  String
+  Writer    String
+  Actors    String
+  Plot      String
+  Language  String
+  Country   String
+  Awards    String
+  Poster    String
+  Metascore String
+  imdbRating String
+  imdbVotes  String
+  imdbID    String
+  Type      String
+  Response  String
+  totalSeasons String?
+  Images    String[]
+  ComingSoon  Boolean?  @default(false)
+}

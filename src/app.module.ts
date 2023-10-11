@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { QrCodeModule } from './qr-code/qr-code.module';
 import { MoviesModule } from './movies/movies.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     // ScheduleModule.forRoot(),
     QrCodeModule,
     MoviesModule,
+    PrismaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
