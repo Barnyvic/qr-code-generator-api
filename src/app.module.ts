@@ -11,7 +11,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    ScheduleModule.forRoot(),
+    // ScheduleModule.forRoot(),
     QrCodeModule,
     MoviesModule,
   ],
