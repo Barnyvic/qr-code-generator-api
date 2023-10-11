@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "movies_entity" (
+CREATE TABLE "media_entity" (
     "id" SERIAL NOT NULL,
     "Title" TEXT NOT NULL,
     "Year" TEXT NOT NULL,
@@ -23,6 +23,8 @@ CREATE TABLE "movies_entity" (
     "Response" TEXT NOT NULL,
     "totalSeasons" TEXT,
     "Images" TEXT[],
+    "ComingSoon" BOOLEAN DEFAULT false,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "movies_entity_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "media_entity_pkey" PRIMARY KEY ("id")
 );

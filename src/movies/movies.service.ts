@@ -1,24 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import * as fs from 'fs';
-import * as path from 'path';
 import { Media } from './movie.interface';
 import { PrismaService } from '../prisma/prisma.service';
 import { Prisma, media_entity } from '@prisma/client';
 
 @Injectable()
 export class MoviesService {
-  private readonly movies: Media[];
-  constructor(private prisma: PrismaService) {
-    const filePath = path.join(__dirname, '../../film.json');
-    const rawData = fs.readFileSync(filePath, 'utf8');
-    this.movies = JSON.parse(rawData);
-  }
+  constructor(private prisma: PrismaService) {}
 
-  async createMovies(data: Prisma.media_entityCreateManyInput[]) {
-    const result = await this.prisma.media_entity.createMany({
-      data: data,
-    });
-  }
   async getMovies() {
     const result = await this.prisma.media_entity.findMany();
     return this.shuffleArray(result);

@@ -35,4 +35,5 @@ model media_entity {
   totalSeasons String?
   Images    String[]
   ComingSoon  Boolean?  @default(false)
+  created_at       DateTime @default(now())
 }
