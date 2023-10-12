@@ -1,32 +1,26 @@
-import { Injectable } from '@nestjs/common';
-import { Media } from './movie.interface';
+import { Injectable, Logger, HttpException, HttpStatus } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { Prisma, media_entity } from '@prisma/client';
+import { media_entity } from '@prisma/client';
+import { randomizeArrayOrder } from '../utils/utility';
 
 @Injectable()
 export class MoviesService {
+  private readonly logger = new Logger(MoviesService.name);
   constructor(private prisma: PrismaService) {}
 
-  async getMovies() {
-    const result = await this.prisma.media_entity.findMany();
-    return this.shuffleArray(result);
-  }
-
-  private shuffleArray(array: Media[]) {
-    if (!array || array.length === 0) {
-      return [];
+  async getMovies(): Promise<media_entity[]> {
+    try {
+      const result = await this.prisma.media_entity.findMany();
+      return randomizeArrayOrder(result);
+    } catch (error) {
+      this.logger.error(
+        `Failed to fetch movies: ${error.message}`,
+        error.stack,
+      );
+      throw new HttpException(
+        'Failed to fetch movies',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
-
-    const shuffledArray = [...array];
-
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[j]] = [
-        shuffledArray[j],
-        shuffledArray[i],
-      ];
-    }
-
-    return shuffledArray;
   }
 }

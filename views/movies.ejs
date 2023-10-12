@@ -10,11 +10,10 @@
     <h1>Movie List</h1>
     <div class="container">
         <div class="row">
-            <% movies.forEach(movie => { %>
+            <% movies.map(movie => { %>
                 <div class="col-md-4">
                     <div class="card mb-3">
-                        <img src="<%=movie.Images[0]%>" alt="<%= movie.Title %> Image" class="card-img-top">
-                        <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BN2EyYzgyOWEtNTY2NS00NjRjLWJiNDYtMWViMjg5MWZjYjgzXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_.jpg" alt="This is my own " srcset="">
+                       <img src="<%= movie.Images[0] %>" alt="<%= movie.Title %> Image" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><%= movie.Title %></h5>
                             <h5 class="card-title"><%= movie.Type %></h5>
