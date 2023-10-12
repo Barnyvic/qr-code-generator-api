@@ -12,7 +12,7 @@ import { PrismaModule } from './prisma/prisma.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    // ScheduleModule.forRoot(),
+    ScheduleModule.forRoot(),
     QrCodeModule,
     MoviesModule,
     PrismaModule,
