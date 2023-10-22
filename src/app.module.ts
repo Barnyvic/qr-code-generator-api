@@ -7,12 +7,13 @@ import { MoviesModule } from './movies/movies.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { PrismaModule } from './prisma/prisma.module';
 
+//this is a test
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    ScheduleModule.forRoot(),
+    // ScheduleModule.forRoot(),
     QrCodeModule,
     MoviesModule,
     PrismaModule,
